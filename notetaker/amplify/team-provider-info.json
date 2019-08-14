@@ -9,6 +9,11 @@
             "UnauthRoleName": "notetaker-notetaker-20190814134751-unauthRole",
             "StackName": "notetaker-notetaker-20190814134751",
             "StackId": "arn:aws:cloudformation:us-east-1:375354767608:stack/notetaker-notetaker-20190814134751/a335e1d0-bebb-11e9-95f5-0a00a1b75a8c"
+        },
+        "categories": {
+            "auth": {
+                "notetakerdd3e5786": {}
+            }
         }
     }
 }
