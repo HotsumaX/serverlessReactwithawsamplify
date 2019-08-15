@@ -52,6 +52,7 @@ const App = () => {
     ];
     setNotes([...updatedNotes]);
     setNote('');
+    setId('');
   };
 
   const handleDeleteNote = async id => {
@@ -78,7 +79,7 @@ const App = () => {
           onChange={handleChangeNote}
           value={note}
         />
-        <button className="pa2 f4">Add Note</button>
+        <button className="pa2 f4">{id ? 'Update Note' : 'Add Note'}</button>
       </form>
 
       <div>
