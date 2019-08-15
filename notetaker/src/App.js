@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { withAuthenticator } from 'aws-amplify-react';
 
 const App = () => {
-  const [notes, setNotes] = useState([{ id: 1, note: 'Hello world' }]);
+  const [note, setNote] = useState('');
+  const [notes, setNotes] = useState([]);
   return (
     <div className="flex flex-column items-center justify-center pa3 bg-washed-red">
       <h1 className="code f2-1">Amplify Notetaker</h1>
