@@ -3,6 +3,7 @@ import { API, graphqlOperation } from 'aws-amplify';
 import { withAuthenticator } from 'aws-amplify-react';
 import { createNote, deleteNote, updateNote } from './graphql/mutations';
 import { listNotes } from './graphql/queries';
+import { onCreateNote } from './graphql/subscriptions';
 
 const App = () => {
   const [id, setId] = useState('');
@@ -15,6 +16,14 @@ const App = () => {
       setNotes([...result.data.listNotes.items]);
     }
     fetchData();
+    API.graphql(graphqlOperation(onCreateNote)).subscribe({
+      next: noteData => {
+        const newNote = noteData.value.Data.onCreateNote;
+        const prevNotes = notes.filter(note => note.id !== newNote.id);
+        const updatedNotes = [...prevNotes, newNote];
+        setNotes(updatedNotes);
+      },
+    });
   }, []);
 
   const handleChangeNote = event => setNote(event.target.value);
