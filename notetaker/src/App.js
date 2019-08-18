@@ -11,7 +11,9 @@ const App = () => {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
-    API.graphql(graphqlOperation(onCreateNote)).subscribe({
+    getNotes();
+
+    const createnote = API.graphql(graphqlOperation(onCreateNote)).subscribe({
       next: noteData => {
         const newNote = noteData.value.data.onCreateNote;
         const prevNotes = notes.filter(note => note.id !== newNote.id);
@@ -19,14 +21,19 @@ const App = () => {
         setNotes([...updatedNotes]);
       },
     });
-    API.graphql(graphqlOperation(onDeleteNote)).subscribe({
+
+    const deletenote = API.graphql(graphqlOperation(onDeleteNote)).subscribe({
       next: noteData => {
         const deletedNote = noteData.value.data.onDeleteNote;
         const updatedNotes = notes.filter(note => note.id !== deletedNote.id);
         setNotes([...updatedNotes]);
       },
     });
-    getNotes();
+
+    return () => {
+      createnote.unsubscribe();
+      deletenote.unsubscribe();
+    };
   }, [note]);
 
   const getNotes = async () => {
