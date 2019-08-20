@@ -133,6 +133,7 @@ const App = () => {
     setNote(note);
     setId(id);
   };
+  
 
   return (
     <div className="flex flex-column items-center justify-center pa3 bg-washed-red">
