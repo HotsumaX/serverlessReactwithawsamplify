@@ -19,30 +19,24 @@ const App = () => {
   //   setNotes([...result.data.listNotes.items]);
   // };
 
-  const addNote = newNote => {
-    setNotes([...notes.filter(note => note.id !== newNote.id), newNote]);
-  };
-
-  const removeNote = oldNote => {
-    setNotes(notes.filter(({ id }) => id !== oldNote.id));
+  const fetchNotes = async () => {
+    const result = await API.graphql(graphqlOperation(listNotes));
+    setNotes(result.data.listNotes.items);
   };
 
   useEffect(() => {
-    const fetchData = async () => {
-      const result = await API.graphql(graphqlOperation(listNotes));
-      setNotes([...result.data.listNotes.items]);
-    };
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    console.log('making 2 new variables/subscriptions');
+    fetchNotes();
 
     const createNoteListener = API.graphql(
       graphqlOperation(onCreateNote),
     ).subscribe({
       next: noteData => {
-        addNote(noteData.value.data.onCreateNote);
+        const newNote = noteData.value.data.onCreateNote;
+        setNotes(prevNotes => {
+          const oldNotes = prevNotes.filter(note => note.id !== newNote.id);
+          const updatedNotes = [...oldNotes, newNote];
+          return updatedNotes;
+        });
       },
     });
 
@@ -50,33 +44,41 @@ const App = () => {
       graphqlOperation(onDeleteNote),
     ).subscribe({
       next: noteData => {
-        removeNote(noteData.value.data.onDeleteNote);
+        const deletedNote = noteData.value.data.onDeleteNote;
+        setNotes(prevNotes => {
+          const updatedNotes = prevNotes.filter(
+            note => note.id !== deletedNote.id,
+          );
+          return updatedNotes;
+        });
       },
     });
     const updateNoteListener = API.graphql(
       graphqlOperation(onUpdateNote),
     ).subscribe({
       next: noteData => {
-        const updatedNote = noteData.value.data.updateNote;
-        const index = notes.findIndex(note => note.id === updatedNote.id);
-        const updatedNotes = [
-          ...notes.slice(0, index),
-          updatedNote,
-          ...notes.slice(index + 1),
-        ];
-        setNotes([...updatedNotes]);
+        const updatedNote = noteData.value.data.onUpdateNote;
+
+        setNotes(prevNotes => {
+          const index = prevNotes.findIndex(note => note.id === updatedNote.id);
+          const updatedNotes = [
+            ...prevNotes.slice(0, index),
+            updatedNote,
+            ...prevNotes.slice(index + 1),
+          ];
+          return updatedNotes;
+        });
         setNote('');
         setId('');
       },
     });
 
     return () => {
-      console.log('unmounting');
       createNoteListener.unsubscribe();
       deleteNoteListener.unsubscribe();
       updateNoteListener.unsubscribe();
     };
-  }, [addNote, removeNote]);
+  }, []);
 
   const handleChangeNote = event => setNote(event.target.value);
 
