@@ -10,36 +10,52 @@ const App = () => {
   const [note, setNote] = useState('');
   const [notes, setNotes] = useState([]);
 
-  useEffect(() => {
-    getNotes();
+  // const getNotes = async () => {
+  //   const result = await API.graphql(graphqlOperation(listNotes));
+  //   setNotes([...result.data.listNotes.items]);
+  // };
 
-    const createnote = API.graphql(graphqlOperation(onCreateNote)).subscribe({
+  const addNote = newNote => {
+    setNotes([...notes.filter(note => note.id !== newNote.id), newNote]);
+  };
+
+  const removeNote = oldNote => {
+    setNotes(notes.filter(({ id }) => id !== oldNote.id));
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await API.graphql(graphqlOperation(listNotes));
+      setNotes([...result.data.listNotes.items]);
+    };
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    console.log('making 2 new variables/subscriptions');
+
+    const createNoteListener = API.graphql(
+      graphqlOperation(onCreateNote),
+    ).subscribe({
       next: noteData => {
-        const newNote = noteData.value.data.onCreateNote;
-        const prevNotes = notes.filter(note => note.id !== newNote.id);
-        const updatedNotes = [...prevNotes, newNote];
-        setNotes([...updatedNotes]);
+        addNote(noteData.value.data.onCreateNote);
       },
     });
 
-    const deletenote = API.graphql(graphqlOperation(onDeleteNote)).subscribe({
+    const deleteNoteListener = API.graphql(
+      graphqlOperation(onDeleteNote),
+    ).subscribe({
       next: noteData => {
-        const deletedNote = noteData.value.data.onDeleteNote;
-        const updatedNotes = notes.filter(note => note.id !== deletedNote.id);
-        setNotes([...updatedNotes]);
+        removeNote(noteData.value.data.onDeleteNote);
       },
     });
 
     return () => {
-      createnote.unsubscribe();
-      deletenote.unsubscribe();
+      console.log('unmounting');
+      createNoteListener.unsubscribe();
+      deleteNoteListener.unsubscribe();
     };
-  }, [note]);
-
-  const getNotes = async () => {
-    const result = await API.graphql(graphqlOperation(listNotes));
-    setNotes([...result.data.listNotes.items]);
-  };
+  }, [addNote, removeNote]);
 
   const handleChangeNote = event => setNote(event.target.value);
 
