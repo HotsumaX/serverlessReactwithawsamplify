@@ -5,7 +5,7 @@ class App extends React.Component {
   state = {};
 
   render() {
-    return <div>App test</div>;
+    return <div>App test to update the aws services</div>;
   }
 }
 
