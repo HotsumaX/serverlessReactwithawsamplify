@@ -8,7 +8,7 @@ class App extends React.Component {
     return (
       <div>
         App test to update the aws services, testing keys, removed the
-        connection to aws
+        connection to aws, cleared the aws cache
       </div>
     );
   }
