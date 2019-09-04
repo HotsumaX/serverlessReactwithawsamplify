@@ -21,6 +21,14 @@ const Navbar = ({ user }) => (
         <Nav.Item index="2">
           <span className="app-user">Hello,{user.username}</span>
         </Nav.Item>
+        <Nav.Item index="3">
+          <NavLink className="nav-link" to="/profile">
+            <Icon name="setting">Profile</Icon>
+          </NavLink>
+        </Nav.Item>
+        <Nav.Item index="4">
+          <Button type="warning">Sign Out</Button>
+        </Nav.Item>
       </div>
     </div>
   </Nav>
