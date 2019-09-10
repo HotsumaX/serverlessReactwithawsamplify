@@ -11,13 +11,23 @@ class NewMarket extends React.Component {
   };
 
   handleAddMarket = async () => {
-    console.log(this.state.name);
-    this.setState({ addMarketDialog: false });
-    const input = {
-      name: this.state.name,
-    };
-    const result = await API.graphql(graphqlOperation(createMarket, { input }));
-    console.info(`Created market: id ${result.data.createMarket}`);
+    try {
+      console.log(this.state.name);
+      this.setState({ addMarketDialog: false });
+      const input = {
+        name: this.state.name,
+      };
+      const result = await API.graphql(
+        graphqlOperation(createMarket, { input }),
+      );
+      console.info(`Created market: id ${result.data.createMarket}`);
+      this.setState({ name: '' });
+    } catch (err) {
+      Notification.error({
+        title: 'Error',
+        message: `${err.message || 'Error adding market'}`,
+      });
+    }
   };
 
   render() {
