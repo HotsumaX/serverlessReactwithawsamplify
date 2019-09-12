@@ -64,7 +64,6 @@ class NewMarket extends React.Component {
               <Form inline={true} onSubmit={this.props.handleSearch}>
                 <Form.Item>
                   <Input
-                    type="type"
                     placeholder="Search Markets..."
                     icon="circle-cross"
                     value={this.props.searchTerm}
@@ -77,7 +76,7 @@ class NewMarket extends React.Component {
                     type="info"
                     icon="search"
                     onClick={this.props.handleSearch}
-                    is-loading={this.props.isSearching}
+                    loading={this.props.isSearching}
                   >
                     Search
                   </Button>

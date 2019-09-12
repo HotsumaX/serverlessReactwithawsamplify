@@ -24,7 +24,7 @@ class HomePage extends React.Component {
       <>
         <NewMarket
           searchTerm={this.state.seachTerm}
-          isSearching={this.handleSearch}
+          isSearching={this.state.handleSearch}
           handleSearchChange={this.handleSearchChange}
           handleClearSearch={this.handleClearSearch}
           handleSearch={this.handleSearch}
