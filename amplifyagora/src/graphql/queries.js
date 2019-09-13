@@ -32,6 +32,14 @@ export const listMarkets = `query ListMarkets(
       id
       name
       products {
+          items {
+            id
+            description
+            price
+            shipped
+            owner
+            createdAt
+          }
         nextToken
       }
       tags

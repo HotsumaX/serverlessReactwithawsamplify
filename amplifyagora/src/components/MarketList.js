@@ -36,44 +36,48 @@ const MarketList = () => {
               />
               Markets
             </h2>
-            {data.listMarkets.items.map(market => (
-              <div className="my-2" key={market.id}>
-                <Card
-                  bodyStyle={{
-                    padding: '0.7em',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                  }}
-                >
-                  <div>
-                    <span className="flex">
-                      <Link className="link" to={`/markets/${market.id}`}>
-                        {market.name}
-                      </Link>
-                      <span style={{ color: 'var(--darkAmazonOrange)' }}>
-                        {market.products.items && market.products.items.length}
+            {data.listMarkets.items.map(market => {
+              console.log(market);
+              return (
+                <div className="my-2" key={market.id}>
+                  <Card
+                    bodyStyle={{
+                      padding: '0.7em',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                    }}
+                  >
+                    <div>
+                      <span className="flex">
+                        <Link className="link" to={`/markets/${market.id}`}>
+                          {market.name}
+                        </Link>
+                        <span style={{ color: 'var(--darkAmazonOrange)' }}>
+                          {market.products.items &&
+                            market.products.items.length}
+                        </span>
+                        <img
+                          src="https://icon.now.sh/shopping_cart/f60"
+                          alt="shopping"
+                        />
                       </span>
-                      <img
-                        src="https://icon.now.sh/shopping_cart/f60"
-                        alt="shopping"
-                      />
-                    </span>
-                    <div style={{ color: 'var(--lightSquidInk)' }}>
-                      {market.owner}
+                      <div style={{ color: 'var(--lightSquidInk)' }}>
+                        {market.owner}
+                      </div>
                     </div>
-                  </div>
-                  <div>
-                    {market.tags &&
-                      market.tags.map(tag => (
-                        <Tag className="mx-1" type="danger" key={tag}>
-                          {tag}
-                        </Tag>
-                      ))}
-                  </div>
-                </Card>
-              </div>
-            ))}
+                    <div>
+                      {market.tags &&
+                        market.tags.map(tag => (
+                          <Tag className="mx-1" type="danger" key={tag}>
+                            {tag}
+                          </Tag>
+                        ))}
+                    </div>
+                  </Card>
+                </div>
+              );
+            })}
           </>
         );
       }}
