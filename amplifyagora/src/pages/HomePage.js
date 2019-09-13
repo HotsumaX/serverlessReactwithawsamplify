@@ -4,7 +4,7 @@ import MarketList from '../components/MarketList';
 
 class HomePage extends React.Component {
   state = {
-    seachTerm: '',
+    searchTerm: '',
     searchResults: [],
     isSearching: false,
   };
@@ -23,7 +23,7 @@ class HomePage extends React.Component {
     return (
       <>
         <NewMarket
-          searchTerm={this.state.seachTerm}
+          searchTerm={this.state.searchTerm}
           isSearching={this.state.handleSearch}
           handleSearchChange={this.handleSearchChange}
           handleClearSearch={this.handleClearSearch}
