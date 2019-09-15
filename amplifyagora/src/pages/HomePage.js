@@ -17,6 +17,7 @@ class HomePage extends React.Component {
   handleSearch = event => {
     event.preventDefault();
     console.log(this.state.searchTerm);
+    //adding notes
   };
 
   render() {
