@@ -15,7 +15,6 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    console.dir(AmplifyTheme);
     this.getUserData();
     Hub.listen('auth', this, 'onHubCapsule');
   }
@@ -67,7 +66,7 @@ class App extends React.Component {
               <Route
                 path="/markets/:marketId"
                 component={({ match }) => (
-                  <MarketPage marketId={match.params.marketId} />
+                  <MarketPage user={user} marketId={match.params.marketId} />
                 )}
               />
             </div>

@@ -35,7 +35,7 @@ class HomePage extends React.Component {
           },
         }),
       );
-      console.log({ result });
+
       this.setState({
         searchResults: result.data.searchMarkets.items,
         isSearching: false,
