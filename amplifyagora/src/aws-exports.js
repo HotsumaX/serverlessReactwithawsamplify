@@ -6,7 +6,20 @@ const awsmobile = {
     "aws_cognito_region": "us-east-1",
     "aws_user_pools_id": "us-east-1_GqO48PtWM",
     "aws_user_pools_web_client_id": "5kv2bde854nh1asndiqqum24f4",
-    "oauth": {},
+    "oauth": {
+        "domain": "amplifyagorab908559c-b908559c-agora.auth.us-east-1.amazoncognito.com",
+        "scope": [
+            "phone",
+            "email",
+            "openid",
+            "profile",
+            "aws.cognito.signin.user.admin"
+        ],
+        "redirectSignIn": "https://tv2k5unlxrbonobm3v624ldzqi.appsync-api.us-east-1.amazonaws.com/graphql/",
+        "redirectSignOut": "https://tv2k5unlxrbonobm3v624ldzqi.appsync-api.us-east-1.amazonaws.com/graphql/",
+        "responseType": "code"
+    },
+    "federationTarget": "COGNITO_USER_POOLS",
     "aws_appsync_graphqlEndpoint": "https://tv2k5unlxrbonobm3v624ldzqi.appsync-api.us-east-1.amazonaws.com/graphql",
     "aws_appsync_region": "us-east-1",
     "aws_appsync_authenticationType": "AMAZON_COGNITO_USER_POOLS"

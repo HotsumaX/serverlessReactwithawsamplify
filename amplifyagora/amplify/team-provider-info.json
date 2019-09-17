@@ -12,7 +12,9 @@
         },
         "categories": {
             "auth": {
-                "amplifyagorae0d7360c": {}
+                "amplifyagorae0d7360c": {
+                    "hostedUIProviderCreds": "[]"
+                }
             }
         }
     }

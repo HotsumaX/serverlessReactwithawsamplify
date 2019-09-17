@@ -9,6 +9,11 @@
 			"UnauthRoleName": "amplifyagora-agora-20190820152036-unauthRole",
 			"StackName": "amplifyagora-agora-20190820152036",
 			"StackId": "arn:aws:cloudformation:us-east-1:375354767608:stack/amplifyagora-agora-20190820152036/973d9850-c37f-11e9-937b-12a6272b4c0e"
+		},
+		"categories": {
+			"auth": {
+				"amplifyagorae0d7360c": {}
+			}
 		}
 	},
 	"auth": {
@@ -16,11 +21,6 @@
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
 			"dependsOn": [],
-			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/amplifyagora-agora-20190820152036-deployment/amplify-cfn-templates/auth/amplifyagorae0d7360c-cloudformation-template.yml",
-				"logicalId": "authamplifyagorae0d7360c"
-			},
-			"lastPushTimeStamp": "2019-08-20T20:12:29.743Z",
 			"output": {
 				"AppClientSecret": "d7t8aefn466mo18ogus0lsv866ko46ebs3s3k66p1k6r3keco99",
 				"UserPoolId": "us-east-1_GqO48PtWM",
@@ -28,9 +28,16 @@
 				"AppClientID": "kpthugggefae4k5suruh993kl",
 				"IdentityPoolId": "us-east-1:db1c27ee-98c4-4e94-82f1-e90759868ea1",
 				"IdentityPoolName": "amplifyagorae0d7360c_identitypool_e0d7360c__agora",
-				"UserPoolName": "amplifyagorae0d7360c_userpool_e0d7360c"
+				"UserPoolName": "amplifyagorae0d7360c_userpool_e0d7360c",
+				"HostedUIDomain": "amplifyagorab908559c-b908559c-agora",
+				"OAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://tv2k5unlxrbonobm3v624ldzqi.appsync-api.us-east-1.amazonaws.com/graphql/\"],\"LogoutURLs\":[\"https://tv2k5unlxrbonobm3v624ldzqi.appsync-api.us-east-1.amazonaws.com/graphql/\"]}"
 			},
-			"lastPushDirHash": "xG4gBx0ppi7ihBEpsCeEuWRR7og="
+			"lastPushTimeStamp": "2019-09-17T15:18:10.315Z",
+			"providerMetadata": {
+				"s3TemplateURL": "https://s3.amazonaws.com/amplifyagora-agora-20190820152036-deployment/amplify-cfn-templates/auth/amplifyagorae0d7360c-cloudformation-template.yml",
+				"logicalId": "authamplifyagorae0d7360c"
+			},
+			"lastPushDirHash": "H199WFg1+z1J2MRX1M6PSUHu0Rg="
 		}
 	},
 	"api": {
@@ -42,12 +49,11 @@
 				"GraphQLAPIIdOutput": "ha6qpjudnjdldbmz63vsq25djy",
 				"GraphQLAPIEndpointOutput": "https://tv2k5unlxrbonobm3v624ldzqi.appsync-api.us-east-1.amazonaws.com/graphql"
 			},
+			"lastPushTimeStamp": "2019-09-17T15:18:10.314Z",
 			"providerMetadata": {
 				"s3TemplateURL": "https://s3.amazonaws.com/amplifyagora-agora-20190820152036-deployment/amplify-cfn-templates/api/cloudformation-template.json",
 				"logicalId": "apiamplifyagora"
-			},
-			"lastPushTimeStamp": "2019-08-20T20:12:29.743Z",
-			"lastPushDirHash": "sFGBCx+j1+lLLL1S6hSf0W/ZKFQ="
+			}
 		}
 	}
 }
