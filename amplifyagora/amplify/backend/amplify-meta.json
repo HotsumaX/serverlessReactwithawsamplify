@@ -1,59 +1,59 @@
 {
-	"providers": {
-		"awscloudformation": {
-			"AuthRoleName": "amplifyagora-agora-20190820152036-authRole",
-			"UnauthRoleArn": "arn:aws:iam::375354767608:role/amplifyagora-agora-20190820152036-unauthRole",
-			"AuthRoleArn": "arn:aws:iam::375354767608:role/amplifyagora-agora-20190820152036-authRole",
-			"Region": "us-east-1",
-			"DeploymentBucketName": "amplifyagora-agora-20190820152036-deployment",
-			"UnauthRoleName": "amplifyagora-agora-20190820152036-unauthRole",
-			"StackName": "amplifyagora-agora-20190820152036",
-			"StackId": "arn:aws:cloudformation:us-east-1:375354767608:stack/amplifyagora-agora-20190820152036/973d9850-c37f-11e9-937b-12a6272b4c0e"
-		},
-		"categories": {
-			"auth": {
-				"amplifyagorae0d7360c": {}
-			}
-		}
-	},
-	"auth": {
-		"amplifyagorae0d7360c": {
-			"service": "Cognito",
-			"providerPlugin": "awscloudformation",
-			"dependsOn": [],
-			"output": {
-				"AppClientSecret": "d7t8aefn466mo18ogus0lsv866ko46ebs3s3k66p1k6r3keco99",
-				"UserPoolId": "us-east-1_GqO48PtWM",
-				"AppClientIDWeb": "5kv2bde854nh1asndiqqum24f4",
-				"AppClientID": "kpthugggefae4k5suruh993kl",
-				"IdentityPoolId": "us-east-1:db1c27ee-98c4-4e94-82f1-e90759868ea1",
-				"IdentityPoolName": "amplifyagorae0d7360c_identitypool_e0d7360c__agora",
-				"UserPoolName": "amplifyagorae0d7360c_userpool_e0d7360c",
-				"HostedUIDomain": "amplifyagorab908559c-b908559c-agora",
-				"OAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://tv2k5unlxrbonobm3v624ldzqi.appsync-api.us-east-1.amazonaws.com/graphql/\"],\"LogoutURLs\":[\"https://tv2k5unlxrbonobm3v624ldzqi.appsync-api.us-east-1.amazonaws.com/graphql/\"]}"
-			},
-			"lastPushTimeStamp": "2019-09-17T15:18:10.315Z",
-			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/amplifyagora-agora-20190820152036-deployment/amplify-cfn-templates/auth/amplifyagorae0d7360c-cloudformation-template.yml",
-				"logicalId": "authamplifyagorae0d7360c"
-			},
-			"lastPushDirHash": "H199WFg1+z1J2MRX1M6PSUHu0Rg="
-		}
-	},
-	"api": {
-		"amplifyagora": {
-			"service": "AppSync",
-			"providerPlugin": "awscloudformation",
-			"output": {
-				"securityType": "AMAZON_COGNITO_USER_POOLS",
-				"GraphQLAPIIdOutput": "ha6qpjudnjdldbmz63vsq25djy",
-				"GraphQLAPIEndpointOutput": "https://tv2k5unlxrbonobm3v624ldzqi.appsync-api.us-east-1.amazonaws.com/graphql"
-			},
-			"lastPushTimeStamp": "2019-09-17T15:18:10.314Z",
-			"providerMetadata": {
-				"s3TemplateURL": "https://s3.amazonaws.com/amplifyagora-agora-20190820152036-deployment/amplify-cfn-templates/api/cloudformation-template.json",
-				"logicalId": "apiamplifyagora"
-			}
-		}
-	}
+    "providers": {
+        "awscloudformation": {
+            "AuthRoleName": "amplifyagora-agora-20190820152036-authRole",
+            "UnauthRoleArn": "arn:aws:iam::375354767608:role/amplifyagora-agora-20190820152036-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::375354767608:role/amplifyagora-agora-20190820152036-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplifyagora-agora-20190820152036-deployment",
+            "UnauthRoleName": "amplifyagora-agora-20190820152036-unauthRole",
+            "StackName": "amplifyagora-agora-20190820152036",
+            "StackId": "arn:aws:cloudformation:us-east-1:375354767608:stack/amplifyagora-agora-20190820152036/973d9850-c37f-11e9-937b-12a6272b4c0e"
+        },
+        "categories": {
+            "auth": {
+                "amplifyagorae0d7360c": {}
+            }
+        }
+    },
+    "auth": {
+        "amplifyagorae0d7360c": {
+            "service": "Cognito",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [],
+            "output": {
+                "AppClientSecret": "d7t8aefn466mo18ogus0lsv866ko46ebs3s3k66p1k6r3keco99",
+                "UserPoolId": "us-east-1_GqO48PtWM",
+                "AppClientIDWeb": "5kv2bde854nh1asndiqqum24f4",
+                "AppClientID": "kpthugggefae4k5suruh993kl",
+                "IdentityPoolId": "us-east-1:db1c27ee-98c4-4e94-82f1-e90759868ea1",
+                "IdentityPoolName": "amplifyagorae0d7360c_identitypool_e0d7360c__agora",
+                "UserPoolName": "amplifyagorae0d7360c_userpool_e0d7360c",
+                "HostedUIDomain": "amplifyagorab908559c-b908559c-agora",
+                "OAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://tv2k5unlxrbonobm3v624ldzqi.appsync-api.us-east-1.amazonaws.com/graphql/\"],\"LogoutURLs\":[\"https://tv2k5unlxrbonobm3v624ldzqi.appsync-api.us-east-1.amazonaws.com/graphql/\"]}"
+            },
+            "lastPushTimeStamp": "2019-09-17T15:33:27.523Z",
+            "providerMetadata": {
+                "s3TemplateURL": "https://s3.amazonaws.com/amplifyagora-agora-20190820152036-deployment/amplify-cfn-templates/auth/amplifyagorae0d7360c-cloudformation-template.yml",
+                "logicalId": "authamplifyagorae0d7360c"
+            },
+            "lastPushDirHash": "H199WFg1+z1J2MRX1M6PSUHu0Rg="
+        }
+    },
+    "api": {
+        "amplifyagora": {
+            "service": "AppSync",
+            "providerPlugin": "awscloudformation",
+            "output": {
+                "securityType": "AMAZON_COGNITO_USER_POOLS",
+                "GraphQLAPIIdOutput": "ha6qpjudnjdldbmz63vsq25djy",
+                "GraphQLAPIEndpointOutput": "https://tv2k5unlxrbonobm3v624ldzqi.appsync-api.us-east-1.amazonaws.com/graphql"
+            },
+            "lastPushTimeStamp": "2019-09-17T15:18:10.314Z",
+            "providerMetadata": {
+                "s3TemplateURL": "https://s3.amazonaws.com/amplifyagora-agora-20190820152036-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+                "logicalId": "apiamplifyagora"
+            }
+        }
+    }
 }

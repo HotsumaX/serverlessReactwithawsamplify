@@ -44,11 +44,7 @@
             "Arn"
         ]
     },
-    "useDefault": "defaultSocial",
+    "useDefault": "default",
     "dependsOn": [],
-    "hostedUI": true,
-    "hostedUIDomainName": "amplifyagorab908559c-b908559c",
-    "authProvidersUserPool": [],
-    "hostedUIProviderMeta": "[]",
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"https://tv2k5unlxrbonobm3v624ldzqi.appsync-api.us-east-1.amazonaws.com/graphql/\"],\"LogoutURLs\":[\"https://tv2k5unlxrbonobm3v624ldzqi.appsync-api.us-east-1.amazonaws.com/graphql/\"]}"
+    "hostedUI": true
 }
