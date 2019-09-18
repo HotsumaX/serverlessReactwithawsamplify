@@ -7,15 +7,17 @@ class NewProduct extends React.Component {
   state = {
     description: '',
     price: '',
+    imagePreview: '',
+    image: '',
     shipped: false,
   };
 
   handleAddProduct = () => {
-    console.log('product added');
+    console.log(this.state);
   };
 
   render() {
-    const { shipped } = this.state;
+    const { description, price, image, shipped, imagePreview } = this.state;
     return (
       <div className="flex-center">
         <h2 className="header">Add New Product</h2>
@@ -63,12 +65,36 @@ class NewProduct extends React.Component {
                 </Radio>
               </div>
             </Form.Item>
+            {imagePreview && (
+              <img className="image-preview" src={imagePreview} />
+            )}
             <PhotoPicker
+              title="Product Image"
+              preview="hidden"
+              onLoad={url => this.setState({ imagePreview: url })}
+              onPick={file => this.setState({ image: file })}
               theme={{
                 formContainer: {
                   margin: 0,
                   padding: '0.8em',
                   color: 'var(--darkAmazonOrange)',
+                },
+                formSection: {
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                },
+                sectionBody: {
+                  margin: 0,
+                  width: '250px',
+                },
+                sectionHeader: {
+                  padding: '0.2em',
+                  color: 'var(--darkAmazonOrange)',
+                },
+                photoPickerButton: {
+                  display: 'none',
                 },
               }}
             />
