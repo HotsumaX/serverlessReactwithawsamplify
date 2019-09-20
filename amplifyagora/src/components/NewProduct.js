@@ -28,6 +28,7 @@ class NewProduct extends React.Component {
                 type="text"
                 icon="information"
                 placeholder="Description"
+                value={description}
                 onChange={description => this.setState({ description })}
               />
             </Form.Item>
@@ -36,15 +37,8 @@ class NewProduct extends React.Component {
                 type="number"
                 icon="plus"
                 placeholder="Price ($USD)"
+                value={price}
                 onChange={price => this.setState({ price })}
-              />
-            </Form.Item>
-            <Form.Item label="Add Product Description">
-              <Input
-                type="text"
-                icon="information"
-                placeholder="Description"
-                onChange={description => this.setState({ description })}
               />
             </Form.Item>
             <Form.Item>
