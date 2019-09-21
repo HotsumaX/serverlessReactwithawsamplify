@@ -3,17 +3,19 @@ import { PhotoPicker } from 'aws-amplify-react';
 // prettier-ignore
 import { Form, Button, Input, Notification, Radio, Progress } from "element-react";
 
+const initialState = {
+  description: '',
+  price: '',
+  imagePreview: '',
+  image: '',
+  shipped: false,
+};
 class NewProduct extends React.Component {
-  state = {
-    description: '',
-    price: '',
-    imagePreview: '',
-    image: '',
-    shipped: false,
-  };
+  state = { ...initialState };
 
   handleAddProduct = () => {
     console.log(this.state);
+    this.setState({ ...initialState });
   };
 
   render() {
@@ -93,7 +95,11 @@ class NewProduct extends React.Component {
               }}
             />
             <Form.Item>
-              <Button type="primary" onClick={this.handleAddProduct}>
+              <Button
+                disabled={!image || !description || !price}
+                type="primary"
+                onClick={this.handleAddProduct}
+              >
                 Add Product
               </Button>
             </Form.Item>
