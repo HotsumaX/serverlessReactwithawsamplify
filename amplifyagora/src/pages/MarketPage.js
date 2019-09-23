@@ -4,6 +4,7 @@ import { getMarket } from '../graphql/queries';
 import { Loading, Tabs, Icon } from 'element-react';
 import { Link } from 'react-router-dom';
 import NewProduct from '../components/NewProduct';
+import Product from '../components/Product';
 
 class MarketPage extends React.Component {
   state = {
@@ -78,11 +79,11 @@ class MarketPage extends React.Component {
             }
             name="2"
           >
-            {/* <div className="product-list">
+            <div className="product-list">
               {market.products.items.map(product => (
                 <Product product={product} />
               ))}
-            </div> */}
+            </div>
           </Tabs.Pane>
         </Tabs>
       </>

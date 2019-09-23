@@ -30,7 +30,7 @@ class NewProduct extends React.Component {
       const uploadedFile = await Storage.put(filename, this.state.image.file, {
         contentType: this.state.image.type,
         progressCallback: progress => {
-          console.log('Uploaded: ${progress.loaded}/${progress.total}');
+          console.log(`Uploaded: ${progress.loaded}/${progress.total}`);
           const percentUploaded = Math.round(
             (progress.loaded / progress.total) * 100,
           );
@@ -116,7 +116,7 @@ class NewProduct extends React.Component {
               </div>
             </Form.Item>
             {imagePreview && (
-              <img className="image-preview" src={imagePreview} />
+              <img className="image-preview" src={imagePreview} alt="preview" />
             )}
             {percentUploaded > 0 && (
               <Progress
