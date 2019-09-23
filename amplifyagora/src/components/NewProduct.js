@@ -5,6 +5,7 @@ import { createProduct } from '../graphql/mutations';
 // prettier-ignore
 import { Form, Button, Input, Notification, Radio, Progress } from "element-react";
 import aws_exports from '../aws-exports';
+import { convertDollarsToCents } from '../utils/index';
 
 const initialState = {
   description: '',
@@ -37,11 +38,11 @@ class NewProduct extends React.Component {
         productMarketId: this.props.marketId,
         description: this.state.description,
         shipped: this.state.shipped,
-        price: this.state.price,
+        price: convertDollarsToCents(this.state.price),
         file,
       };
       const result = await API.graphql(
-        graphqlOperation(createProduct, { inpurt }),
+        graphqlOperation(createProduct, { input }),
       );
       console.log('Created Product', result);
       Notification({
@@ -56,7 +57,14 @@ class NewProduct extends React.Component {
   };
 
   render() {
-    const { description, price, image, shipped, imagePreview } = this.state;
+    const {
+      description,
+      price,
+      image,
+      shipped,
+      imagePreview,
+      isUploading,
+    } = this.state;
     return (
       <div className="flex-center">
         <h2 className="header">Add New Product</h2>
@@ -133,11 +141,12 @@ class NewProduct extends React.Component {
             />
             <Form.Item>
               <Button
-                disabled={!image || !description || !price}
+                disabled={!image || !description || !price || isUploading}
                 type="primary"
                 onClick={this.handleAddProduct}
+                loading={isUploading}
               >
-                Add Product
+                {isUploading ? 'Uploading...' : 'Add Product'}
               </Button>
             </Form.Item>
           </Form>
