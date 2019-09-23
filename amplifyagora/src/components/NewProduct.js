@@ -12,6 +12,7 @@ const initialState = {
   price: '',
   imagePreview: '',
   image: '',
+  percentUploaded: 0,
   shipped: false,
   isUploading: false,
 };
@@ -28,6 +29,13 @@ class NewProduct extends React.Component {
       }`;
       const uploadedFile = await Storage.put(filename, this.state.image.file, {
         contentType: this.state.image.type,
+        progressCallback: progress => {
+          console.log('Uploaded: ${progress.loaded}/${progress.total}');
+          const percentUploaded = Math.round(
+            (progress.loaded / progress.total) * 100,
+          );
+          this.setState({ percentUploaded });
+        },
       });
       const file = {
         key: uploadedFile.key,
@@ -64,6 +72,7 @@ class NewProduct extends React.Component {
       shipped,
       imagePreview,
       isUploading,
+      percentUploaded,
     } = this.state;
     return (
       <div className="flex-center">
@@ -108,6 +117,13 @@ class NewProduct extends React.Component {
             </Form.Item>
             {imagePreview && (
               <img className="image-preview" src={imagePreview} />
+            )}
+            {percentUploaded > 0 && (
+              <Progress
+                type="circle"
+                classname="progress"
+                percentage={percentUploaded}
+              />
             )}
             <PhotoPicker
               title="Product Image"
